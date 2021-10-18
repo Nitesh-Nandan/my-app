@@ -45,7 +45,7 @@ async def my_event_handler(event):
     sender = await event.get_sender()
     sender_name = utils.get_display_name(sender)
 
-    if receiverList[sender_name]:
+    if receiverList.get(sender_name) is not None and receiverList.get(sender_name):
         res = sendMessage(sender_name, clean(event.raw_text))
         if res.status_code == 200:
             print(f"Sent Successfully, Sender: {sender_name}, Message: {clean(event.raw_text)}")
@@ -60,10 +60,10 @@ async def my_event_handler(event):
     print("------------------------------------------\n")
 
 
+print("Launched")
+
 with client:
     client.run_until_disconnected()
-
-
 
 # client.start()
 # client.run_until_disconnected()
