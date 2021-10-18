@@ -11,4 +11,9 @@ public class APIPath {
     public static class SMS {
         public static final String MESSAGE = "/sms/message";
     }
+
+    @UtilityClass
+    public static class TEL {
+        public static final String MESSAGE = "/tel/message";
+    }
 }
