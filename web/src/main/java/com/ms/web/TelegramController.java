@@ -32,10 +32,6 @@ public class TelegramController {
             if (errors.hasErrors()) {
                 throw new RequestParamsException(errors.getAllErrors());
             }
-            log.info("Telegram String = {}", objectMapper.writeValueAsString(smsMessageRequest.getMessage()));
-            System.out.println("Out:- " + smsMessageRequest.getMessage());
-
-            log.info("Sender = {}, Body = {}, Time = {}", smsMessageRequest.getSender(), smsMessageRequest.getMessage(), smsMessageRequest.getTime());
             return ResponseEntity.ok().body("Success");
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(new GenericResponse<>(null, Collections.singletonList(ex.getMessage())));
